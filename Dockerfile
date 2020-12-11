@@ -102,7 +102,9 @@ RUN set -ex; \
 	
 VOLUME /var/www/html
 RUN rm -rf /etc/apache2/ports.conf
+RUN rm -rf /etc/apache2/sites-enabled/000-default.conf
 COPY ports.conf /etc/apache2/
+COPY 000-default.conf /etc/apache2/sites-enabled/
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
