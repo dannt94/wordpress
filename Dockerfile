@@ -101,6 +101,9 @@ RUN set -ex; \
 
 	
 VOLUME /var/www/html
+RUN chmod -R 777 /var/www/html \
+    && ln -s /var/www/html
+
 RUN rm -rf /etc/apache2/ports.conf
 RUN rm -rf /etc/apache2/sites-enabled/000-default.conf
 COPY ports.conf /etc/apache2/
